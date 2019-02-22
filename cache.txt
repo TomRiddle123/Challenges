@@ -1,0 +1,4 @@
+surf -> charmander
+X2
+surf -> onix
+X2
