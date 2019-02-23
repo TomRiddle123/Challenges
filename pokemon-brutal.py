@@ -1,4 +1,4 @@
-__author__ = 'Guy'
+__author__ = 'TomRiddle'
 import pokepy
 
 # client for the api
@@ -45,19 +45,26 @@ def main():
 
         try:
             lines = []
+
             with open("cache.txt", "a+") as cache:
                 lines = cache.read().split("\n")
-            if query in lines:
+
+
+            if query in lines:  # if there is a record of this query
                 result = lines[lines.index(query) + 1]
                 print "found in cache"
                 print result
+
             else:
                 attack, pokemon = parse_query(query)
-                print attack, pokemon
-                tp_pokemon = client.get_pokemon(pokemon)[0].types[0].type.name
+                tot_ef = 1
                 tp_attack = client.get_move(attack)[0].type.name
-                print tp_attack, tp_pokemon
-                answer = "X" + str(get_num(tp_attack, tp_pokemon))
+
+                for tp_pokemon in client.get_pokemon(pokemon)[0].types:
+                    tot_ef *= get_num(tp_attack, tp_pokemon.type.name)
+                    #print tp_attack, tp_pokemon
+
+                answer = "X" + str(tot_ef)
                 print answer
                 with open("cache.txt", "a+") as cache:
                     cache.write(query + "\n" + answer + "\n")

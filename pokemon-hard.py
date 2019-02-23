@@ -1,4 +1,4 @@
-__author__ = 'Guy'
+__author__ = 'TomRiddle'
 import pokepy
 
 # client for the api
@@ -45,11 +45,15 @@ def main():
 
         try:
             attack, pokemon = parse_query(query)
-            print attack, pokemon
-            tp_pokemon = client.get_pokemon(pokemon)[0].types[0].type.name
+            #print attack, pokemon
+            tot_ef = 1
             tp_attack = client.get_move(attack)[0].type.name
-            print tp_attack, tp_pokemon
-            print "X" + str(get_num(tp_attack, tp_pokemon))
+
+            for tp_pokemon in client.get_pokemon(pokemon)[0].types:
+                tot_ef *= get_num(tp_attack, tp_pokemon.type.name)
+                #print tp_attack, tp_pokemon
+
+            print "X" + str(tot_ef)
 
         except Exception as e:
             #print e.message

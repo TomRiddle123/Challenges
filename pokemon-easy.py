@@ -1,3 +1,4 @@
+__author__ = 'Tom Riddle'
 from PIL import Image
 import os
 
@@ -63,7 +64,7 @@ def get_num(at, df):
 def main():
     while True:
         query = raw_input("Please enter your question in the following format:\nattack_type -> defense_type1, defense_type2, ...\n")
-        tot_ef = 1
+        tot_ef = 1.0
         try:
             attacker, defenders = parse_query(query)
             for defender in defenders:

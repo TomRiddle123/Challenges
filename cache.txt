@@ -1,4 +1,4 @@
-surf -> charmander
-X2
-surf -> onix
-X2
+leech-life -> charmander
+X0.5
+leech-life -> bulbasaur
+X1.0

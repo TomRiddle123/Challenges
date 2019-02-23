@@ -1,4 +1,4 @@
-__author__ = 'Guy'
+__author__ = 'Tom Riddle'
 import pokepy
 # client for the api
 client = pokepy.V2Client()
