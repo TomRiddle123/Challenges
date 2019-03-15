@@ -1,4 +1,4 @@
-__author__ = 'Guy'
+__author__ = 'TomRiddle'
 import requests, httplib, os
 from bs4 import BeautifulSoup
 
